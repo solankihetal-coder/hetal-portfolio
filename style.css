@@ -9,8 +9,7 @@
     /* Text & Gray Colors (Default/Light Theme) */
     --text-color: #333;
     --text-t1: #868484;
-    /* --light-gray: #f7f7f7; */
-    --light-gray: #fdefd5;
+    --light-gray: #f7f7f7;
 
     /* Theme-specific variables (Default/Light Theme) */
     --bg-color: linear-gradient(135deg, #f0f0f0, #e0e0e0);
