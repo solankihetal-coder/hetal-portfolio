@@ -352,6 +352,16 @@ body.dark-theme {
     line-height: 1.6;
 }
 
+/* About text paragraph (sits below hero description) */
+.about-text {
+    max-width: 450px;
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-t1);
+    font-family: 'Poppins', sans-serif;
+}
+
 /* Hero Image & Effects */
 .hero-image-container {
     flex: 1;
@@ -776,6 +786,52 @@ body.dark-theme {
   flex-shrink: 0;             /* ← prevents date column from wrapping */
   white-space: nowrap;        /* ← keeps "April 2025 – April 2026 · On-site" on one line */
   padding-top: 2px;           /* ← optically aligns with h3 */
+}
+
+/* ===================================================================
+   SERVICES SECTION
+====================================================================== */
+.services-section {
+  max-width: 1100px;
+  margin: auto;
+  margin-top: 5rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.service-card {
+  background: var(--secondary-color);
+  border-radius: 18px;
+  padding: 2rem 1.75rem;
+  text-align: left;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+}
+
+.service-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-t1);
 }
 
 /* =================================================================
@@ -1374,6 +1430,10 @@ body.dark-theme {
         gap: 1rem;
         padding:1rem 0;
     }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Mobile (≤900px) - About Section Specific */
@@ -1406,6 +1466,12 @@ body.dark-theme {
     }
     .name{
       font-size:2rem;}
+
+    .about-text {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* Mobile (≤768px) */
@@ -1506,6 +1572,10 @@ body.dark-theme {
         font-size: 0.82rem;
     }
 
+    .about-text {
+        font-size: 0.82rem;
+    }
+
     .circle-image-wrapper {
         width: 300px;
         height: 300px;
@@ -1590,6 +1660,10 @@ body.dark-theme {
     }
     .certificate-card img { 
         height: 180px; 
+    }
+
+    .services-section {
+        padding: 0 1rem;
     }
 }
 
@@ -1844,6 +1918,10 @@ body.dark-theme {
         display:grid;
         grid-template-columns:1fr;
         margin: 12px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
     }
 
 }
