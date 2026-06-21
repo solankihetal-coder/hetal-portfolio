@@ -474,7 +474,7 @@ const StackedCardScroll = {
   },
 
   applyCardTransform(card, index, progress) {
-    const translateY = index * 30;
+    // const translateY = index * 30;
 
     card.style.transform = `translateY(${translateY}px)`;
     card.style.zIndex = index;
