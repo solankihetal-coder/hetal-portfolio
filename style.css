@@ -531,10 +531,12 @@ body.dark-theme {
 }
 
 .about-bio p {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: var(--text-t1);
-    margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-t1);
+  margin-bottom: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .about-bio p:last-child {
@@ -1214,6 +1216,18 @@ body.dark-theme {
   backdrop-filter:blur(6px);
 }
 
+/* Wrapper handles the reveal animation; inner card keeps its own tilt untouched */
+.hobby-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+
+.hobby-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* =================================================================
    9. SOFTWARE SECTION
    ================================================================= */
@@ -1289,12 +1303,6 @@ body.dark-theme {
   gap:10px;
 }
 
-.software-group-label::after{
-  content:"";
-  flex:1;
-  height:1px;
-  background:#e0e0e0;
-}
 
 /* SMALL PILLS */
 .software-pills{
@@ -1789,15 +1797,16 @@ body.dark-theme {
     .journey-track::before {
         top: 0;
         bottom: 0;
-        left: 7px;
+        left: 8px; /* was 7px — now matches exact center of 16px dot */
         right: auto;
         width: 2px;
         height: auto;
+        transform: translateX(-1px); /* centers the 2px line itself on that point */
     }
 
     .journey-track::after {
         top: 0;
-        left: 7px;
+        left: 8px;
         width: 2px;
         height: 0%;
         transition: height 1s var(--ease-out-expo);
@@ -1990,13 +1999,23 @@ body.dark-theme {
         padding: 2rem;
     }
 
-        /* Stack the top layout */
- 
+    /* Stack the top layout */ 
 
     .software-grid{
         display:grid;
         grid-template-columns:1fr;
         margin: 12px;
+    }
+
+    .software-pills {
+        padding: 0 1rem;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+    
+    .software-group-label {
+        padding: 0 1rem;
+        box-sizing: border-box;
     }
     .certificate-section  { 
         padding: 3rem 1rem; 
