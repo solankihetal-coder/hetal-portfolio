@@ -18,7 +18,7 @@ const CONFIG = {
   scrollOffset: 150
 };
 
-const TYPING_PHRASES = ['UI/UX Designer', 'Web Developer'];
+const TYPING_PHRASES = ['Product Designer', 'Web Developer'];
 
 // =====================================================
 // UTILITY FUNCTIONS
@@ -674,6 +674,7 @@ const App = {
     TypingEffect.init();
     SectionReveal.init();
     JourneyAnimation.init();
+    HobbiesAnimation.init();   // ← add this line
     TiltEffect.init();
     StackedCardScroll.init();
 
@@ -752,6 +753,44 @@ function resetContactForm() {
   submitBtn.innerHTML       = 'Send Message <i class="fas fa-paper-plane"></i>';
   if (charCount) charCount.textContent = '0'; // reset char counter
 }
+
+
+// =====================================================
+// HOBBIES — staggered fade-in reveal (tilt stays on inner card)
+// =====================================================
+const HobbiesAnimation = {
+  init() {
+    this.cards = document.querySelectorAll('.hobby-reveal');
+    if (!this.cards.length) return;
+
+    this.setupObserver();
+  },
+
+  setupObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => this.handleIntersection(entries, observer),
+      { threshold: 0.2 }
+    );
+    observer.observe(document.querySelector('.hobbies-grid'));
+  },
+
+  handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        this.playSequence();
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+
+  playSequence() {
+    this.cards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('active');
+      }, index * 200);
+    });
+  }
+};
 
 
 // =====================================================
