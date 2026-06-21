@@ -28,7 +28,7 @@
   ===================================================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet"/>
   
   <!-- Font Awesome Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
@@ -50,8 +50,10 @@
 
     <!-- Navigation Menu -->
     <nav id="nav-menu">
-      <!-- <a href="#about" class="nav-link">About</a> -->
+      <a href="#about" class="nav-link">About</a>
+      <a href="#journey" class="nav-link">Journey</a>
       <a href="#projects" class="nav-link">Projects</a>
+      <a href="#services" class="nav-link">Services</a>
       <!-- <a href="#experience" class="nav-link">Experience</a> -->
       <a href="#skills" class="nav-link">Skills</a>
       <a href="#certificate" class="nav-link">Certificates</a>
@@ -75,15 +77,15 @@
       <h1 class="main-heading">Yo! <img src="hand_with_smile.png" alt="hand_image" class="hand">I'm<br>
         <span class="name">Hetal Solanki</span></h1>
       <p class="typing-text"></p>
-      <p class="description">
+      <!-- <p class="description">
         Some days I'm sketching user flows, other days I'm in the code. <br>
         Either way, I'm solving the same problem from a different angle.
-      </p>
+      </p> -->
       <p class="about-text">
         Product designer. Web developer. Freelancer. <br>
           I design the experience, then build it. 
-          <br> So there's no gap between the idea and the interface. 
-          <br> New to freelancing, but not new to figuring things out.
+          <!-- <br> So there's no gap between the idea and the interface. 
+          <br> New to freelancing, but not new to figuring things out. -->
       </p>
       <div class="button-group">
         <a href="#contact" class="cta-btn"><i class="fa-solid fa-circle-dot status-dot"></i> &nbsp; Available for work</a>
@@ -115,6 +117,78 @@
     <div class="scroll-indicator">
         <i class="fas fa-arrow-down"></i>
     </div>
+
+    <!-- =====================================================
+         ABOUT SECTION (Bio + Stats)
+    ===================================================== -->
+<section id="about" class="about-section">
+  <p class="section-tag">( About )</p>
+  <h2 class="section-title"><em>A bit more</em> <strong>about me</strong></h2>
+
+  <div class="about-grid">
+    <div class="about-bio">
+      <p>
+        I'm a designer who codes, or a developer who designs, depends on the day.
+        I started in visual design, picked up frontend development so I could ship
+        what I imagined, and now I move between Figma and VS Code without feeling
+        like I've switched jobs.
+      </p>
+      <p>
+        I design the experience, then build it so there's no gap between the
+        idea and the interface. New to freelancing, but not new to figuring things out.
+      </p>
+    </div>
+
+    <div class="about-stats-grid">
+      <div class="about-stat-card stagger">
+        <h3>16+</h3>
+        <p>Certifications</p>
+      </div>
+      <div class="about-stat-card stagger">
+        <h3>4+</h3>
+        <p>Projects shipped</p>
+      </div>
+      <div class="about-stat-card stagger">
+        <h3>7</h3>
+        <p>Languages &amp; tools</p>
+      </div>
+      <div class="about-stat-card stagger">
+        <h3>UX+</h3>
+        <p>Frontend hybrid skillset</p>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- End About Section -->
+
+    <!-- =====================================================
+         JOURNEY SECTION (Timeline)
+    ===================================================== -->
+<section id="journey" class="journey-section">
+  <p class="section-tag">( My Journey )</p>
+  <h2 class="section-title"><em>How I</em> <strong>got here</strong></h2>
+
+  <div class="journey-track">
+    <div class="journey-step">
+      <p class="journey-label">Started in Design</p>
+      <p class="journey-text">Picked up visual design first &mdash; wireframes, prototypes, and a growing pull toward Figma.</p>
+    </div>
+    <div class="journey-step">
+      <p class="journey-label">Learned to Build</p>
+      <p class="journey-text">Taught myself HTML, CSS, and JS so designs didn't have to wait on someone else to ship them.</p>
+    </div>
+    <div class="journey-step">
+      <p class="journey-label">Went Hybrid</p>
+      <p class="journey-text">Started taking on both the design and the build &mdash; UI/UX work and frontend dev, end to end.</p>
+    </div>
+    <div class="journey-step">
+      <p class="journey-label">Today</p>
+      <p class="journey-text">Freelancing, picking up AI-driven design workflows, and stacking certifications across design, dev, and AI tools.</p>
+    </div>
+  </div>
+</section>
+    <!-- End Journey Section -->
+
     <!-- =====================================================
          PROJECTS SECTION
     ===================================================== -->
@@ -124,10 +198,10 @@
         <h2 class="section-title"><em>Selected</em> <strong>Projects</strong></h2>
 
   <div class="project-filters">
-    <button class="filter-btn active" data-category="design">
+    <button class="filter-btn active stagger" data-category="design">
     <i class="fas fa-pencil-ruler"></i> UI/UX Design
   </button>
-  <button class="filter-btn" data-category="web">
+  <button class="filter-btn stagger" data-category="web">
     <i class="fas fa-code"></i> Web Development
   </button>
   <!-- <button class="filter-btn" data-category="mobile">
@@ -146,6 +220,7 @@
                     <span class="project-category-tag design">Design</span>
                 </div>
                 <h3 class="project-title">Swachhata App</h3>
+                <p class="project-description">A civic-tech app concept designed in Figma to help users report and track local cleanliness issues.</p>
                 <div class="button-group">
                     <a href="https://www.behance.net/gallery/246742015/Swachhta-App-Case-study" class="view-case-study-btn">Case Study</a>
                     <a href="https://www.figma.com/proto/No2d6pMkH1D3RGP3eanP6n/swachhta?node-id=120-1462&t=iQewN7vkGWN8iUmu-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=120%3A1462" class="view-project-btn">Live 
@@ -171,6 +246,7 @@
                     <span class="project-category-tag design">design</span>
                 </div>
                 <h3 class="project-title">Twirl Around World</h3>
+                <p class="project-description">A live travel brand website, designed end-to-end and shipped to a real domain.</p>
                 <div class="button-group">
                     <!-- <a href="vintage_casestudy.html" class="view-case-study-btn">Case Study</a> -->
                     <a href="https://twirlaroundworld.com" class="view-project-btn">Live <i class="fas fa-arrow-right"></i></a>
@@ -183,6 +259,7 @@
                     <span class="project-category-tag design">design</span>
                 </div>
                 <h3 class="project-title">Play Scape Shippers Pvt Ltd</h3>
+                <p class="project-description">A live business website designed for a shipping and logistics company.</p>
                 <div class="button-group">
                     <!-- <a href="vintage_casestudy.html" class="view-case-study-btn">Case Study</a> -->
                     <a href="https://www.playscapeshippers.info/" class="view-project-btn">Live <i class="fas fa-arrow-right"></i></a>
@@ -195,9 +272,7 @@
                     <span class="project-category-tag mobile">mobile</span>
                 </div>
                 <h3 class="project-title"></h3>
-                <!-- <p class="project-description">
-                    A table generator, infinite numbers...
-                </p> -->
+                <p class="project-description">A lightweight web tool built with HTML, CSS, and JavaScript.</p>
                 <div class="project-tech-stack">
                     <span class="tech-tag">HTML</span>
                     <span class="tech-tag">CSS</span>
@@ -236,9 +311,7 @@
                     <span class="project-category-tag web">web</span>
                 </div>
                 <h3 class="project-title">Calculator </h3>
-                <!-- <p class="project-description">
-                    A cube, square and root calculator...
-                </p> -->
+                <p class="project-description">A square, cube, and square-root calculator built with HTML, CSS, and JavaScript.</p>
                 <div class="project-tech-stack">
                     <span class="tech-tag">HTML</span>
                     <span class="tech-tag">CSS</span>
@@ -257,9 +330,7 @@
                     <span class="project-category-tag web">web</span>
                 </div>
                 <h3 class="project-title">E-Commerce Platform</h3>
-                <!-- <p class="project-description">
-                    An e-commerce platform built with html, css and js, cart management, and payment...
-                </p> -->
+                <p class="project-description">An e-commerce platform with cart management and Stripe-powered payments, backed by PHP and SQL.</p>
                 <div class="project-tech-stack">
                     <span class="tech-tag">JS</span>
                     <span class="tech-tag">Stripe</span>
@@ -301,14 +372,7 @@
                     <span class="project-category-tag mobile">mobile</span>
                 </div>
                 <h3 class="project-title">Table Generator</h3>
-                <!-- <p class="project-description">
-                    A table generator, infinite numbers...
-                </p> -->
-                <!-- <div class="project-tech-stack">
-                    <span class="tech-tag">HTML</span>
-                    <span class="tech-tag">CSS</span>
-                    <span class="tech-tag">JS</span>
-                </div> -->
+                <p class="project-description">A simple tool that generates multiplication tables for any number, instantly.</p>
                 <div class="button-group">
                     <!-- <a href="" class="view-case-study-btn">Case Study</a> -->
                     <a href="https://solankihetal-coder.github.io/Table-Generator/" class="view-project-btn">Live <i class="fas fa-arrow-right"></i></a>
@@ -379,17 +443,17 @@
   <h2 class="section-title"><em>What I</em> <strong>Do</strong></h2>
 
   <div class="services-grid">
-    <div class="service-card">
+    <div class="service-card stagger">
       <h3>Product Design</h3>
       <p>From user research to wireframes to high-fidelity prototypes, I design products people actually want to use.</p>
     </div>
 
-    <div class="service-card">
+    <div class="service-card stagger">
       <h3>Frontend Development</h3>
       <p>I bring designs to life with clean HTML, CSS, and JavaScript — no handoff friction, no lost-in-translation.</p>
     </div>
 
-    <div class="service-card">
+    <div class="service-card stagger">
       <h3>End-to-End Builds</h3>
       <p>Need both? I can take a product from a blank page to a working interface, solo.</p>
     </div>
@@ -429,7 +493,7 @@
   </div>
 
     <!-- Software Pills/Tags -->
-  <p class="section-tag">( Statistics )</p>
+  <!-- <p class="section-tag">( Statistics )</p>
   <h2 class="section-title"> <em>By The</em> <strong>Numbers</strong></h2>
 
   <div class="stats-grid">
@@ -451,7 +515,7 @@
       <h3>Multi</h3>
       <p>domain creative expertise</p>
     </div>
-  </div>
+  </div> -->
 </section>
     <!-- End Skills Section -->
 
@@ -463,46 +527,44 @@
         <p class="section-tag">( Software Tools )</p>
             <h2 class="section-title"><em>Under the</em> <strong>Hood</strong></h2>
 
-            <!-- BIG TOOLS GRID -->
+            <!-- BIG FEATURED CARDS -->
   <div class="software-grid">
 
-    <div class="software-card">
+    <div class="software-card stagger stagger-fade">
       <img src="swachhta_banner.png" alt="Figma">
       <span class="software-label">Figma</span>
     </div>
 
-    <div class="software-card">
+    <div class="software-card stagger stagger-fade">
       <img src="savvyshopper_banner.svg" alt="VS Code">
       <span class="software-label">VS Code</span>
     </div>
 
-    <!-- <div class="software-card">
-      <img src="https://picsum.photos/500/400?3" alt="Lottie">
-      <span class="software-label">Lottie</span>
-    </div> -->
-
-    <!-- <div class="software-card">
-      <img src="https://picsum.photos/500/400?4" alt="Spline">
-      <span class="software-label">Spline</span>
-    </div> -->
-
   </div>
 
+        <!-- TECHNOLOGIES -->
+        <p class="software-group-label">Languages &amp; Technologies</p>
         <div class="software-pills">
-            <span><img src="chat-gpt.png" alt="chatgpt">ChatGPT</span>
-            <!-- <span><img src="css.png" alt="css">CSS</span> -->
-            <span><img src="claude.svg" alt="claude">Claude</span>
-            <span><img src="figma.png" alt="figma">Figma</span>
-            <span><img src="framer-logo.png" alt="framer">Framer</span>
-            <span><img src="github.png" alt="github">GitHub</span>
-            <span><img src="git.svg" alt="git">Git</span>
-            <!-- <span><img src="javascript.png" alt="javascript">JavaScript</span> -->
-            <!-- <span><img src="" alt="php"><i class="fa-brands fa-php"></i>PHP</span> -->
-            <!-- <span><img src="" alt="sql"><i class="fa-solid fa-database"></i>SQL</span> -->
-            <span><img src="logos_miro-icon.png" alt="miro">Miro</span>
-            <span><img src="vscode.png" alt="vscode">VS Code</span>
-            <!-- <span><img src="sketch.png" alt="sketch">Sketch</span> -->
-            <!-- <span><img src="material-icon-theme_html.png" alt="html">HTML</span> -->
+            <span><i class="fa-brands fa-python"></i>Python</span>
+            <span><i class="fa-brands fa-html5"></i>HTML</span>
+            <span><i class="fa-brands fa-css3-alt"></i>CSS</span>
+            <span><i class="fa-brands fa-js"></i>JavaScript</span>
+            <span><i class="fa-brands fa-php"></i>PHP</span>
+            <span><i class="fa-solid fa-database"></i>SQL</span>
+            <span><i class="fa-solid fa-c"></i>C</span>
+        </div>
+
+        <!-- TOOLS & PLATFORMS -->
+        <p class="software-group-label">Tools &amp; Platforms</p>
+        <div class="software-pills">
+            <span><i class="fa-solid fa-code"></i>VS Code</span>
+            <span><i class="fa-brands fa-figma"></i>Figma</span>
+            <span><i class="fa-solid fa-wand-magic-sparkles"></i>Framer</span>
+            <span><i class="fa-solid fa-diagram-project"></i>Miro</span>
+            <span><i class="fa-brands fa-git-alt"></i>Git</span>
+            <span><i class="fa-brands fa-github"></i>GitHub</span>
+            <span><i class="fa-solid fa-robot"></i>ChatGPT</span>
+            <span><i class="fa-solid fa-feather-pointed"></i>Claude</span>
         </div>
     </section>
     <!-- End Software Section -->
@@ -514,30 +576,412 @@
   <p class="section-tag">( Certifications )</p>
   <h2 class="section-title"><em>Learning</em> <strong>Journey</strong></h2>
 
+  <div class="certificate-filters">
+    <button class="cert-filter-btn active stagger" data-cert-category="all">
+      <i class="fas fa-layer-group"></i> All
+    </button>
+    <button class="cert-filter-btn stagger" data-cert-category="development">
+      <i class="fas fa-code"></i> Development
+    </button>
+    <button class="cert-filter-btn stagger" data-cert-category="design">
+      <i class="fas fa-pencil-ruler"></i> Design
+    </button>
+    <button class="cert-filter-btn stagger" data-cert-category="ai">
+      <i class="fas fa-wand-magic-sparkles"></i> AI &amp; Workflow
+    </button>
+  </div>
+
   <div class="certificate-carousel" id="certCarousel">
     <div class="carousel-track-landing" id="certTrack">
 
       <!-- ── ORIGINAL SET ── -->
-      <div class="certificate-card"><img src="SQLL-certificate.jpeg"               alt="SQL"></div>
-      <div class="certificate-card"><img src="angular-certicate.jpeg"              alt="Angular"></div>
-      <div class="certificate-card"><img src="prompt-engineering-certificate.jpg"  alt="Prompt Engineering"></div>
-      <div class="certificate-card"><img src="c-certificate.jpeg"                  alt="C"></div>
-      <div class="certificate-card"><img src="html-certificate.jpeg"               alt="HTML"></div>
-      <div class="certificate-card"><img src="write-with-AI-certificate.jpeg"      alt="Write with AI"></div>
-      <div class="certificate-card"><img src="python-certficate.jpeg"              alt="Python"></div>
-      <div class="certificate-card"><img src="ML-certificate.jpeg"                 alt="Machine Learning"></div>
-      <div class="certificate-card"><img src="big-data-computing-certificate.jpeg" alt="Big Data Computing"></div>
+      <div class="certificate-card" data-cert-category="development">
+        <img src="SQLL-certificate.jpeg" alt="SQL">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">SQL</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">07 Nov, 2022</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- ── DUPLICATE SET (exact clone for seamless loop) ── -->
-      <div class="certificate-card"><img src="SQLL-certificate.jpeg"               alt="SQL"></div>
-      <div class="certificate-card"><img src="angular-certicate.jpeg"              alt="Angular"></div>
-      <div class="certificate-card"><img src="prompt-engineering-certificate.jpg"  alt="Prompt Engineering"></div>
-      <div class="certificate-card"><img src="c-certificate.jpeg"                  alt="C"></div>
-      <div class="certificate-card"><img src="html-certificate.jpeg"               alt="HTML"></div>
-      <div class="certificate-card"><img src="write-with-AI-certificate.jpeg"      alt="Write with AI"></div>
-      <div class="certificate-card"><img src="python-certficate.jpeg"              alt="Python"></div>
-      <div class="certificate-card"><img src="ML-certificate.jpeg"                 alt="Machine Learning"></div>
-      <div class="certificate-card"><img src="big-data-computing-certificate.jpeg" alt="Big Data Computing"></div>
+      <div class="certificate-card" data-cert-category="development">
+        <img src="angular-certicate.jpeg" alt="Angular">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">Angular</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">01 Nov, 2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="prompt-engineering-certificate.jpg" alt="Prompt Engineering">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">Prompt Engineering</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">16 Oct, 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="c-certificate.jpeg" alt="C">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">C Programming</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">06 Jan, 2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="html-certificate.jpeg" alt="HTML">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">HTML</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">21 Dec, 2022</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="write-with-AI-certificate.jpeg" alt="Write with AI">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">Write with AI</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">13 Oct, 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="python-certficate.jpeg" alt="Python">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">Python</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">13 Sept, 2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="ML-certificate.jpeg" alt="Machine Learning">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">Machine Learning</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">TRCAC</span>
+            <span class="certificate-date">16 Mar, 2024</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="big-data-computing-certificate.jpeg" alt="Big Data Computing">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">Big Data Computing</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">TRCAC</span>
+            <span class="certificate-date">25 Sep, 2023</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── NEW CERTIFICATES ── -->
+      <div class="certificate-card" data-cert-category="design">
+        <img src="graphic-design-certificate.jpeg" alt="Graphic Design">
+        <div class="certificate-info">
+          <span class="certificate-type-tag design">Design</span>
+          <h4 class="certificate-name">Graphic Design</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Canva</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="design">
+        <img src="principles-of-design-certificate.jpeg" alt="Principles of Design">
+        <div class="certificate-info">
+          <span class="certificate-type-tag design">Design</span>
+          <h4 class="certificate-name">Principles of Design</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">IBM</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="design-fundamentals-ai-certificate.jpeg" alt="Design Fundamentals with AI">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">Design Fundamentals with AI</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Coursera</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="design">
+        <img src="ux-principles-process-certificate.jpeg" alt="UX Principles and Process">
+        <div class="certificate-info">
+          <span class="certificate-type-tag design">Design</span>
+          <h4 class="certificate-name">UX Principles and Process</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Coursera</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="ai-workflow-figma-certificate.jpeg" alt="AI Workflow with Figma">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">AI Workflow with Figma</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">LinkedinLearning</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="ai-driven-product-design-certificate.jpeg" alt="AI-Driven Product Design">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">AI-Driven Product Design</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">LinkedinLearning</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="ux-writing-ai-certificate.jpeg" alt="UX Writing with AI">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">UX Writing with AI</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">UX Writing Hub</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── DUPLICATE SET (exact clone for seamless desktop loop) ── -->
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="SQLL-certificate.jpeg" alt="SQL">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">SQL</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">07 Nov, 2022</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="angular-certicate.jpeg" alt="Angular">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">Angular</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">01 Nov, 2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="prompt-engineering-certificate.jpg" alt="Prompt Engineering">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">Prompt Engineering</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">16 Oct, 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="c-certificate.jpeg" alt="C">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">C Programming</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">06 Jan, 2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="html-certificate.jpeg" alt="HTML">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">HTML</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">21 Dec, 2022</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="write-with-AI-certificate.jpeg" alt="Write with AI">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">Write with AI</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">13 Oct, 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="python-certficate.jpeg" alt="Python">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">Python</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Sololearn</span>
+            <span class="certificate-date">13 Sept, 2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="ML-certificate.jpeg" alt="Machine Learning">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">Machine Learning</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">TRCAC</span>
+            <span class="certificate-date">16 Mar, 2024</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="development">
+        <img src="big-data-computing-certificate.jpeg" alt="Big Data Computing">
+        <div class="certificate-info">
+          <span class="certificate-type-tag development">Development</span>
+          <h4 class="certificate-name">Big Data Computing</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">TRCAC</span>
+            <span class="certificate-date">25 Sep, 2023</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── NEW CERTIFICATES ── -->
+      <div class="certificate-card" data-cert-category="design">
+        <img src="graphic-design-certificate.jpeg" alt="Graphic Design">
+        <div class="certificate-info">
+          <span class="certificate-type-tag design">Design</span>
+          <h4 class="certificate-name">Graphic Design</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Canva</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="design">
+        <img src="principles-of-design-certificate.jpeg" alt="Principles of Design">
+        <div class="certificate-info">
+          <span class="certificate-type-tag design">Design</span>
+          <h4 class="certificate-name">Principles of Design</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">IBM</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="design-fundamentals-ai-certificate.jpeg" alt="Design Fundamentals with AI">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">Design Fundamentals with AI</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Coursera</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="design">
+        <img src="ux-principles-process-certificate.jpeg" alt="UX Principles and Process">
+        <div class="certificate-info">
+          <span class="certificate-type-tag design">Design</span>
+          <h4 class="certificate-name">UX Principles and Process</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">Coursera</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="ai-workflow-figma-certificate.jpeg" alt="AI Workflow with Figma">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">AI Workflow with Figma</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">LinkedinLearning</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="ai-driven-product-design-certificate.jpeg" alt="AI-Driven Product Design">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">AI-Driven Product Design</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">LinkedinLearning</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card" data-cert-category="ai">
+        <img src="ux-writing-ai-certificate.jpeg" alt="UX Writing with AI">
+        <div class="certificate-info">
+          <span class="certificate-type-tag ai">AI &amp; Workflow</span>
+          <h4 class="certificate-name">UX Writing with AI</h4>
+          <div class="certificate-meta">
+            <span class="certificate-platform">UX Writing Hub</span>
+            <span class="certificate-date">[Date]</span>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -555,22 +999,22 @@
 
   <div class="hobbies-grid">
 
-    <div class="hobby-card tilt-left featured">
+    <div class="hobby-card tilt-left featured stagger stagger-fade">
       <img src="wildflower_song.jpg" alt="Music">
       <span class="hobby-label">Music</span>
     </div>
 
-    <div class="hobby-card tilt-right">
+    <div class="hobby-card tilt-right stagger stagger-fade">
       <img src="fashiondesigning.jpg" alt="Fashion Designing">
       <span class="hobby-label">Fashion Designing</span>
     </div>
 
-    <div class="hobby-card tilt-left">
+    <div class="hobby-card tilt-left stagger stagger-fade">
       <img src="poetry.jpg" alt="Poetry">
       <span class="hobby-label">Poetry</span>
     </div>
 
-    <div class="hobby-card tilt-right">
+    <div class="hobby-card tilt-right stagger stagger-fade">
       <img src="sketching.jpg" alt="Sketching">
       <span class="hobby-label">Sketching</span>
     </div>
