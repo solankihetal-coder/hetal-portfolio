@@ -372,6 +372,48 @@ const SectionReveal = {
 };
 
 // =====================================================
+// JOURNEY TIMELINE — staggered scroll reveal
+// =====================================================
+const JourneyAnimation = {
+  init() {
+    this.track = document.querySelector('.journey-track');
+    if (!this.track) return;
+
+    this.steps = this.track.querySelectorAll('.journey-step');
+    if (!this.steps.length) return;
+
+    this.setupObserver();
+  },
+
+  setupObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => this.handleIntersection(entries, observer),
+      { threshold: 0.3 }
+    );
+    observer.observe(this.track);
+  },
+
+  handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        this.playSequence();
+        observer.unobserve(entry.target); // play once, not every scroll pass
+      }
+    });
+  },
+
+  playSequence() {
+    this.track.classList.add('active');
+
+    this.steps.forEach((step, index) => {
+      setTimeout(() => {
+        step.classList.add('active');
+      }, index * 280);
+    });
+  }
+};
+
+// =====================================================
 // 3D TILT EFFECT
 // =====================================================
 const TiltEffect = {
@@ -433,20 +475,24 @@ const StackedCardScroll = {
 
   applyCardTransform(card, index, progress) {
     const translateY = index * 30;
-    // const scale = 1 - (index * 0.01);
 
-    card.style.transform = `translateY(${translateY}px) scale(${scale})`;
-    card.style.zIndex = Math.floor(progress / 1000);
+    card.style.transform = `translateY(${translateY}px)`;
+    card.style.zIndex = index;
     card.style.opacity = 1;
   }
 };
 
 /* ─────────────────────────────────────────────────────────────────
-     KEY FIX 3 – Dynamic duration calibrated to screen size
-     Target speed: 120 px/s on desktop, scales down on mobile so the
-     animation never feels rushed on small screens or sluggish on wide ones.
+     CERTIFICATE CAROUSEL — auto-scroll ticker (desktop) +
+     touch-swipe/snap (mobile, handled natively by CSS overflow-x).
+     Target speed: 120 px/s on desktop, scales down on smaller
+     desktop/tablet widths. Below 768px the JS hands off entirely
+     to native scrolling — see the @media block in style.css that
+     sets `transform: none !important` on the track.
   ───────────────────────────────────────────────────────────────── */
-(function () {
+const CertificateCarousel = (function () {
+  const MOBILE_BREAKPOINT = 768;
+
   const carousel = document.getElementById('certCarousel');
   const track    = document.getElementById('certTrack');
 
@@ -456,36 +502,45 @@ const StackedCardScroll = {
   let lastTime  = null;
   let rafId     = null;
   let isPaused  = false;
+  let isMobile  = false;
 
-  /* ── Pause on hover ──────────────────────────────────────────────── */
-  carousel.addEventListener('mouseenter', () => { isPaused = true;  });
-  carousel.addEventListener('mouseleave', () => { isPaused = false; });
+  function isMobileViewport() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
 
-  /* ── Measure real pixel width of ONE card set ───────────────────── */
+  /* ── Pause on hover (desktop only — no-op on touch) ──────────────── */
+  function bindHoverPause() {
+    carousel.addEventListener('mouseenter', () => { isPaused = true;  });
+    carousel.addEventListener('mouseleave', () => { isPaused = false; });
+  }
+
+  /* ── Measure real pixel width of ONE card set (visible cards only) ── */
   function measure() {
-    halfWidth = track.scrollWidth / 2;
+    const visibleCards = track.querySelectorAll('.certificate-card:not(.is-hidden)');
+    let width = 0;
+    visibleCards.forEach(card => {
+      width += card.getBoundingClientRect().width + 24; // card width + gap
+    });
+    halfWidth = width / 2;
   }
 
   /* ── Speed by viewport (px / ms) ───────────────────────────────── */
   function updateSpeed() {
     const w = window.innerWidth;
     let pxPerSec;
-    if      (w <= 480)  pxPerSec = 90;
-    else if (w <= 640)  pxPerSec = 100;
-    else if (w <= 768)  pxPerSec = 100;
-    else if (w <= 900) pxPerSec = 110;
+    if      (w <= 900)  pxPerSec = 110;
     else if (w <= 1024) pxPerSec = 110;
     else                pxPerSec = 120;
     speed = pxPerSec / 1000;
   }
 
-  /* ── rAF loop ───────────────────────────────────────────────────── */
+  /* ── rAF loop (desktop ticker) ───────────────────────────────────── */
   function tick(timestamp) {
     if (lastTime === null) lastTime = timestamp;
     const elapsed = Math.min(timestamp - lastTime, 100);
     lastTime = timestamp;
 
-    if (!isPaused && halfWidth > 0) {
+    if (!isPaused && !isMobile && halfWidth > 0) {
       offset += speed * elapsed;
       if (offset >= halfWidth) {
         offset -= halfWidth;
@@ -496,32 +551,97 @@ const StackedCardScroll = {
     rafId = requestAnimationFrame(tick);
   }
 
+  /* ── Switch between desktop ticker and mobile native swipe ──────── */
+  function syncMode() {
+    const nowMobile = isMobileViewport();
+    if (nowMobile && !isMobile) {
+      // Entering mobile mode: release the ticker, let native scroll take over
+      isMobile = true;
+      track.style.transform = '';
+      offset = 0;
+    } else if (!nowMobile && isMobile) {
+      // Returning to desktop: resume the ticker
+      isMobile = false;
+      lastTime = null;
+      measure();
+    }
+  }
+
   /* ── Resize handler ─────────────────────────────────────────────── */
   let resizeTimer;
-  window.addEventListener('resize', () => {
+  function handleResize() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      const prevHalf = halfWidth;
-      measure();
-      updateSpeed();
-      if (prevHalf > 0) offset = (offset / prevHalf) * halfWidth;
-      lastTime = null;
+      syncMode();
+      if (!isMobile) {
+        const prevHalf = halfWidth;
+        measure();
+        updateSpeed();
+        if (prevHalf > 0) offset = (offset / prevHalf) * halfWidth;
+        lastTime = null;
+      }
     }, 150);
-  });
+  }
+
+  /* ── Public: re-measure after a filter changes which cards show ──── */
+  function refresh() {
+    offset = 0;
+    track.style.transform = isMobile ? '' : 'translateX(0px)';
+    if (!isMobile) {
+      measure();
+      lastTime = null;
+    }
+  }
 
   /* ── Boot ───────────────────────────────────────────────────────── */
   function init() {
-    measure();
+    if (!carousel || !track) return;
+    isMobile = isMobileViewport();
+    bindHoverPause();
     updateSpeed();
+    if (!isMobile) measure();
+    window.addEventListener('resize', handleResize);
     rafId = requestAnimationFrame(tick);
   }
 
-  if (document.readyState === 'complete') {
-    init();
-  } else {
-    window.addEventListener('load', init);
-  }
+  return { init, refresh };
 })();
+
+if (document.readyState === 'complete') {
+  CertificateCarousel.init();
+} else {
+  window.addEventListener('load', () => CertificateCarousel.init());
+}
+
+/* =====================================================
+// CERTIFICATE SUBTYPE FILTER (All / Development / Design / AI & Workflow)
+===================================================== */
+const CertificateFilter = {
+  init() {
+    this.buttons = document.querySelectorAll('.certificate-filters .cert-filter-btn');
+    this.cards   = document.querySelectorAll('#certTrack .certificate-card');
+
+    if (!this.buttons.length || !this.cards.length) return;
+
+    this.buttons.forEach(btn => {
+      btn.addEventListener('click', () => this.handleFilterClick(btn));
+    });
+  },
+
+  handleFilterClick(activeBtn) {
+    Utils.removeClass(this.buttons, 'active');
+    Utils.addClass(activeBtn, 'active');
+    this.filterCertificates(activeBtn.dataset.certCategory);
+  },
+
+  filterCertificates(category) {
+    this.cards.forEach(card => {
+      const shouldShow = category === 'all' || card.dataset.certCategory === category;
+      card.classList.toggle('is-hidden', !shouldShow);
+    });
+    CertificateCarousel.refresh();
+  }
+};
 
 // =====================================================
 // APPLICATION INITIALIZATION
@@ -548,10 +668,12 @@ const App = {
     // Filters
     ProjectFilter.init();
     SkillFilter.init();
+    CertificateFilter.init();
 
     // Effects & Animations
     TypingEffect.init();
     SectionReveal.init();
+    JourneyAnimation.init();
     TiltEffect.init();
     StackedCardScroll.init();
 
