@@ -553,6 +553,57 @@
     margin-top: 60px;
   }
 
+  /* ── DESIGN SHOWCASE (new) ── */
+  .design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+  .design-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .design-card img {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid var(--rule);
+  }
+  .design-card-caption {
+    padding: 16px 20px;
+  }
+  .design-card-caption h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-dark);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .design-card-caption p {
+    font-size: 13.5px;
+    margin: 0;
+  }
+
+  /* ── REFLECTION (new) ── */
+  .reflection-box {
+    background: var(--green-mist);
+    border: 1px solid var(--green-pale);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  .reflection-box ul li {
+    border-bottom: none;
+    padding-bottom: 10px;
+  }
+  .reflection-box ul li::before {
+    background: var(--green-mid);
+  }
+
   /* ── PRINT ── */
   @media print {
     .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -564,6 +615,7 @@
     .toc-wrapper { padding: 28px 24px; }
     .page { padding: 0 20px 60px; }
     .overview-card { grid-template-columns: 1fr; }
+    .design-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -571,14 +623,14 @@
 
 <!-- COVER -->
 <div class="cover">
-  <p class="cover-eyebrow">Black Book · Full System Analysis & Design</p>
+  <p class="cover-eyebrow">Solo Project · UI/UX Design + Systems Analysis</p>
   <h1>SavvyShopper</h1>
-  <p class="cover-subtitle">Project Case Study</p>
+  <p class="cover-subtitle">Herbal &amp; Ayurvedic E-Commerce — Design + Systems Architecture</p>
   <div class="cover-meta">
     <span class="meta-pill">E-commerce / Smart Shopping</span>
+    <span class="meta-pill">UI/UX Design</span>
     <span class="meta-pill">Waterfall SDLC</span>
-    <span class="meta-pill">Visual Studio + MySQL</span>
-    <span class="meta-pill">Herbal & Ayurvedic Products</span>
+    <span class="meta-pill">Herbal &amp; Ayurvedic Products</span>
   </div>
 </div>
 
@@ -586,6 +638,7 @@
 <div class="toc-wrapper">
   <p class="toc-title">Contents</p>
   <div class="toc-grid">
+    <a class="toc-item" href="#s0"><span class="toc-num">00</span> The Design</a>
     <a class="toc-item" href="#s1"><span class="toc-num">01</span> Project Overview</a>
     <a class="toc-item" href="#s2"><span class="toc-num">02</span> Background & Problem Definition</a>
     <a class="toc-item" href="#s3"><span class="toc-num">03</span> Proposed System</a>
@@ -603,6 +656,59 @@
 <!-- MAIN CONTENT -->
 <div class="page">
 
+  <!-- 0. The Design (new) -->
+  <section class="section" id="s0" style="margin-top: 56px; border-top: none; padding-top: 0;">
+    <div class="section-header">
+      <span class="section-num">00</span>
+      <h2>The Design</h2>
+    </div>
+    <p>Before any systems architecture, this project started as a UI/UX design exercise — building a herbal wellness brand from scratch: identity, layout, and user flow.</p>
+
+    <h3>Brand Identity</h3>
+    <p>A calming sage-green palette paired with a hand-illustrated meditating mascot, used consistently across every screen to reinforce the "wellness and nature" positioning.</p>
+
+    <div class="design-grid">
+      <div class="design-card">
+        <img src="Home_page.png" alt="SavvyShopper homepage design">
+        <div class="design-card-caption">
+          <h4>Homepage</h4>
+          <p>Follows a clear hierarchy: hero message → value proposition → browsable categories → best-selling products — designed to build trust before asking the user to browse deeper.</p>
+        </div>
+      </div>
+      <div class="design-card">
+        <img src="Home_care.png" alt="Home Care category page design">
+        <div class="design-card-caption">
+          <h4>Category Page — Home Care</h4>
+          <p>Each product is listed with name, price, a short description, and quick actions (Buy Now / Add to Cart / Wishlist) — built to support fast browsing decisions.</p>
+        </div>
+      </div>
+      <div class="design-card">
+        <img src="Login.png" alt="Login screen design">
+        <div class="design-card-caption">
+          <h4>Login</h4>
+          <p>A simple, distraction-free entry point — minimal fields and a clear call to action, with the brand mascot keeping things feeling warm even on a functional screen.</p>
+        </div>
+      </div>
+      <div class="design-card">
+        <img src="register.png" alt="Signup screen design">
+        <div class="design-card-caption">
+          <h4>Signup / Register</h4>
+          <p>Mirrors the login screen's structure for consistency, keeping the form short to reduce friction for new users.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>What I'd Do Differently Now</h3>
+    <div class="reflection-box">
+      <p>This was my first full UI/UX project, and revisiting it taught me a lot about the details that actually matter:</p>
+      <ul>
+        <li><strong>Product descriptions</strong> — early drafts reused one generic description across all products. I went back and wrote accurate, product-specific copy for each item — a good reminder that small content details affect how trustworthy a product feels.</li>
+        <li><strong>Color contrast</strong> — some category card text sits too close in tone to its background. I now know to check contrast ratios against accessibility standards before finalizing a palette.</li>
+      </ul>
+      <p style="margin-bottom: 0;">Sharing this honestly because it's part of how I got better — not despite the early mistakes, but because of catching and fixing them.</p>
+    </div>
+  </section>
+
   <!-- 1. Project Overview -->
   <section class="section" id="s1">
     <div class="section-header">
@@ -612,11 +718,14 @@
     <div class="overview-card">
       <div class="ov-item"><label>Project Name</label><span>SavvyShopper</span></div>
       <div class="ov-item"><label>Domain</label><span>E-commerce / Smart Shopping Platform</span></div>
-      <div class="ov-item"><label>Document Type</label><span>Black Book (Full System Analysis &amp; Design)</span></div>
+      <div class="ov-item"><label>Document Type</label><span>UI/UX Design + Full System Analysis</span></div>
       <div class="ov-item"><label>Development Methodology</label><span>Waterfall Model</span></div>
     </div>
     <p>SavvyShopper is a comprehensive herbal and Ayurvedic e-commerce platform designed to provide eco-friendly, indigenous products to a broad consumer base. It began with a range of 18 products and has expanded into categories including health &amp; nutrition, skincare, personal care, home care, baby care, agriculture, veterinary, and food products.</p>
     <p>The proposed system elevates SavvyShopper from a simple marketing website into a fully intelligent, data-driven shopping platform that integrates price comparison, personalization, and deal intelligence.</p>
+
+    <h3>The Systems Thinking Behind the Design</h3>
+    <p>Beyond the UI, this project also required me to think like a systems analyst — defining the backend logic, data structure, and business case that would make this design actually work as a product. The sections below cover that analysis in full.</p>
   </section>
 
   <!-- 2. Background & Problem Definition -->
@@ -1099,13 +1208,14 @@
     <div class="conclusion-box">
       <p>The SavvyShopper project presents a well-rounded case study in transforming a basic product marketing website into a comprehensive, intelligent shopping platform. Grounded in consumer behavior theory, machine learning, and behavioral economics, the proposed system addresses real gaps in the existing infrastructure while delivering clear value to end users — through personalization, cost savings, and transparency — and to the business — through diversified revenue, data-driven marketing, and scalable architecture.</p>
       <p>The use of the Waterfall model provides structure and traceability across all phases, making it an appropriate choice for a project with well-defined requirements. The completeness of the design artifacts — ER diagrams, data flow diagrams, structure charts, event tables, and a data dictionary — demonstrates thorough analytical rigor and readiness for implementation.</p>
+      <p>This project taught me that good design isn't just visual — it's connected to a system that has to actually function. That dual lens — how something looks and feels, and how it's built and structured — is exactly the kind of thinking I now bring to every project, design or development.</p>
     </div>
   </section>
 
 </div>
 
 <footer>
-  SavvyShopper &nbsp;·&nbsp; Project Case Study &nbsp;·&nbsp; Black Book Documentation
+  SavvyShopper &nbsp;·&nbsp; UI/UX Design + Systems Case Study
 </footer>
 
 </body>
